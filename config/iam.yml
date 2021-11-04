@@ -1,0 +1,12 @@
+- Effect: Allow
+  Action:
+    - dynamodb:*
+  Resource: arn:aws:dynamodb:*
+- Effect: Allow
+  Action:
+    - logs:CreateLogGroup,
+    - logs:CreateLogStream,
+    - logs:PutLogEvents,
+    - logs:DescribeLogStreams
+    - logs:CreateExportTask
+  Resource: arn:aws:logs:*

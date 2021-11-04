@@ -1,0 +1,12 @@
+/.build
+/dist
+/node_modules
+/out
+/.env
+/src/coverage/*
+/coverage/*
+/documentation/*
+/.history
+/.DS_Store
+/e2e-out.json
+/.dynamodb

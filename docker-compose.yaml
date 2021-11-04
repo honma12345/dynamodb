@@ -1,0 +1,36 @@
+version: "3.4"
+services:
+  dynamodb:
+    tty: true
+    build:
+      args:
+        - DATA_DIR=$DATA_DIR
+        - APP=$APP
+      context: ./docker
+      dockerfile: backend.dockerfile
+    # command: npm run start:dev
+    command: sls offline --host 0.0.0.0 --port 3000
+    env_file: .env
+    volumes:
+      - ./:/var/app:delegated
+    ports:
+      - "3100:3000"
+  dynamodblocal:
+    image: amazon/dynamodb-local
+    networks:
+      - default
+    ports:
+      - 8000:8000
+    command: ["-jar", "DynamoDBLocal.jar", "-dbPath", "./data", "-port", "8000"]
+    volumes:
+      - ./.dynamodb/data:/home/dynamodblocal/data
+  dynamodbadmin:
+    image: instructure/dynamo-local-admin
+    ports:
+      - 8001:8001
+    environment:
+      DYNAMO_ENDPOINT: http://dynamodblocal:8000
+      AWS_REGION: ap-northeast-1
+      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+    depends_on:
+      - dynamodblocal

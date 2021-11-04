@@ -1,0 +1,25 @@
+{
+    "workbench.colorTheme": "Community Material Theme Palenight High Contrast",
+    "prettier.printWidth": 120,
+    "emmet.triggerExpansionOnTab": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "explorer.confirmDragAndDrop": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "explorer.autoReveal": false,
+    "editor.formatOnSave": true,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/.history/**": true,
+        "**/coverage/**": true,
+        "**/dist/**": true,
+        "**/.build/**": true,
+    },
+    "editor.minimap.enabled": false,
+    "git.autofetch": true,
+    "gitlens.views.repositories.files.layout": "tree",
+    "terminal.integrated.copyOnSelection": true,
+    "editor.tabSize": 2
+}
